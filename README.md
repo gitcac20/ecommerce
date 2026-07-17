@@ -8,6 +8,23 @@ La API permite gestionar productos, categorías y carritos de compra mediante op
 
 ---
 # Endpoints
+# Pruebas con Thunder Client
+
+La URL base de la API es:
+
+```
+http://localhost:8080
+```
+
+Para los endpoints que reciben datos (POST y PUT):
+
+- Seleccionar **Body → JSON**.
+- Enviar el encabezado:
+
+```text
+Content-Type: application/json
+```
+
 1. Crear una categoría
 
 
