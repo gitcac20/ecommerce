@@ -167,51 +167,6 @@ http://localhost:8080/categorias/1
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Tecnologías utilizadas
 
 - Java 17
