@@ -4,168 +4,9 @@
 
 Ecommerce API es una aplicación REST desarrollada con **Spring Boot** para administrar un sistema de comercio electrónico.
 
-La API permite gestionar productos, categorías y carritos de compra mediante operaciones CRUD, además de realizar búsquedas por nombre y categoría, controlar el stock de los productos y administrar el contenido de un carrito.
+La API permite gestionar productos, categorías y carritos de compra mediante operaciones CRUD, realizar búsquedas por nombre y categoría, controlar el stock de los productos y administrar el contenido de un carrito.
 
 ---
-# Endpoints
-# Pruebas con Thunder Client
-
-La URL base de la API es:
-
-```
-http://localhost:8080
-```
-
-Para los endpoints que reciben datos (POST y PUT):
-
-- Seleccionar **Body → JSON**.
-- Enviar el encabezado:
-
-```text
-Content-Type: application/json
-```
-
-1. Crear una categoría
-
-
-POST
-
-http://localhost:8080/categorias
-
-Body
-{
-  "nombre": "Notebooks",
-  "descripcion": "Computadoras portátiles"
-}
-
-2. Verificar que se creó
-
-GET
-
-http://localhost:8080/categorias
-
-3. Obtener la categoría por ID
-
-GET
-
-http://localhost:8080/categorias/1
-
-4. Crear un producto
-
-POST
-
-http://localhost:8080/productos
-
-Body
-
-{
-  "nombre": "Notebook Lenovo",
-  "precio": 1500000,
-  "stock": 10,
-  "imagenUrl": "https://imagen.com/notebook.jpg",
-  "categoria": {
-    "id": 1
-  }
-}
-
-5. Listar productos
-
-GET
-
-http://localhost:8080/productos
-
-6. Obtener producto por ID
-
-GET
-
-http://localhost:8080/productos/1
-
-7. Buscar por nombre
-
-GET
-
-http://localhost:8080/productos/nombre/Notebook
-
-8. Buscar por categoría
-
-GET
-
-http://localhost:8080/productos/categoria/Notebooks
-
-9. Actualizar producto
-
-PUT
-
-http://localhost:8080/productos/1
-
-Body
-
-{
-  "nombre": "Notebook Lenovo Gamer",
-  "precio": 1800000,
-  "stock": 8,
-  "imagenUrl": "https://imagen.com/notebook2.jpg",
-  "categoria": {
-    "id": 1
-  }
-}
-
-10. Crear un carrito
-
-POST
-
-http://localhost:8080/carritos
-
-11. Ver carritos
-
-GET
-
-http://localhost:8080/carritos
-
-12. Agregar un producto al carrito
-
-POST
-
-http://localhost:8080/carritos/1/productos/1
-
-
-
-GET http://localhost:8080/productos/1
-
-El carrito disminuye el stock
-
-
-13. Ver el carrito
-
-GET
-
-http://localhost:8080/carritos/1
-
-14. Vaciar el carrito
-
-DELETE
-
-http://localhost:8080/carritos/1/vaciar
-
-15. Eliminar el carrito
-
-DELETE
-
-http://localhost:8080/carritos/1
-
-16. Eliminar el producto
-
-DELETE
-
-http://localhost:8080/productos/1
-
-17. Eliminar la categoría
-
-DELETE
-
-http://localhost:8080/categorias/1
-
-
 
 # Tecnologías utilizadas
 
@@ -226,7 +67,7 @@ git clone https://github.com/gitcac20/ecommerce.git
 
 5. La API estará disponible en:
 
-```
+```text
 http://localhost:8080
 ```
 
@@ -273,15 +114,34 @@ http://localhost:8080
 
 ---
 
-# Ejemplos de uso
+# Pruebas con Thunder Client
 
-## Crear una categoría
+La URL base de la API es:
+
+```text
+http://localhost:8080
+```
+
+Para los endpoints que reciben datos (**POST** y **PUT**):
+
+- Seleccionar **Body → JSON**.
+- Enviar el encabezado:
+
+```text
+Content-Type: application/json
+```
+
+---
+
+## 1. Crear una categoría
 
 **POST**
 
-```
+```text
 http://localhost:8080/categorias
 ```
+
+**Body**
 
 ```json
 {
@@ -292,13 +152,35 @@ http://localhost:8080/categorias
 
 ---
 
-## Crear un producto
+## 2. Verificar que se creó
+
+**GET**
+
+```text
+http://localhost:8080/categorias
+```
+
+---
+
+## 3. Obtener la categoría por ID
+
+**GET**
+
+```text
+http://localhost:8080/categorias/1
+```
+
+---
+
+## 4. Crear un producto
 
 **POST**
 
-```
+```text
 http://localhost:8080/productos
 ```
+
+**Body**
 
 ```json
 {
@@ -314,55 +196,161 @@ http://localhost:8080/productos
 
 ---
 
-## Buscar un producto
+## 5. Listar productos
 
 **GET**
 
+```text
+http://localhost:8080/productos
 ```
+
+---
+
+## 6. Obtener un producto por ID
+
+**GET**
+
+```text
 http://localhost:8080/productos/1
 ```
 
 ---
 
-## Buscar productos por nombre
+## 7. Buscar productos por nombre
 
 **GET**
 
-```
-http://localhost:8080/productos/nombre/notebook
+```text
+http://localhost:8080/productos/nombre/Notebook
 ```
 
 ---
 
-## Buscar productos por categoría
+## 8. Buscar productos por categoría
 
 **GET**
 
-```
-http://localhost:8080/productos/categoria/notebooks
+```text
+http://localhost:8080/productos/categoria/Notebooks
 ```
 
 ---
 
-## Crear un carrito
+## 9. Actualizar un producto
+
+**PUT**
+
+```text
+http://localhost:8080/productos/1
+```
+
+**Body**
+
+```json
+{
+  "nombre": "Notebook Lenovo Gamer",
+  "precio": 1800000,
+  "stock": 8,
+  "imagenUrl": "https://imagen.com/notebook2.jpg",
+  "categoria": {
+    "id": 1
+  }
+}
+```
+
+---
+
+## 10. Crear un carrito
 
 **POST**
 
+```text
+http://localhost:8080/carritos
 ```
+
+No requiere Body.
+
+---
+
+## 11. Ver los carritos
+
+**GET**
+
+```text
 http://localhost:8080/carritos
 ```
 
 ---
 
-## Agregar un producto al carrito
+## 12. Agregar un producto al carrito
 
 **POST**
 
-```
-http://localhost:8080/carritos/1/productos/3
+```text
+http://localhost:8080/carritos/1/productos/1
 ```
 
-Este endpoint agrega el producto con ID **3** al carrito con ID **1**.
+No requiere Body.
+
+Para verificar que el stock disminuyó:
+
+**GET**
+
+```text
+http://localhost:8080/productos/1
+```
+
+Al agregar un producto al carrito, el stock se reduce automáticamente en una unidad.
+
+---
+
+## 13. Ver un carrito
+
+**GET**
+
+```text
+http://localhost:8080/carritos/1
+```
+
+---
+
+## 14. Vaciar un carrito
+
+**DELETE**
+
+```text
+http://localhost:8080/carritos/1/vaciar
+```
+
+---
+
+## 15. Eliminar un carrito
+
+**DELETE**
+
+```text
+http://localhost:8080/carritos/1
+```
+
+---
+
+## 16. Eliminar un producto
+
+**DELETE**
+
+```text
+http://localhost:8080/productos/1
+```
+
+---
+
+## 17. Eliminar una categoría
+
+**DELETE**
+
+```text
+http://localhost:8080/categorias/1
+```
 
 ---
 
