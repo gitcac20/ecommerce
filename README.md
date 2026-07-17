@@ -7,6 +7,193 @@ Ecommerce API es una aplicación REST desarrollada con **Spring Boot** para admi
 La API permite gestionar productos, categorías y carritos de compra mediante operaciones CRUD, además de realizar búsquedas por nombre y categoría, controlar el stock de los productos y administrar el contenido de un carrito.
 
 ---
+# Endpoints
+1. Crear una categoría
+
+
+POST
+
+http://localhost:8080/categorias
+
+Body
+{
+  "nombre": "Notebooks",
+  "descripcion": "Computadoras portátiles"
+}
+
+2. Verificar que se creó
+
+GET
+
+http://localhost:8080/categorias
+
+3. Obtener la categoría por ID
+
+GET
+
+http://localhost:8080/categorias/1
+
+4. Crear un producto
+
+POST
+
+http://localhost:8080/productos
+
+Body
+
+{
+  "nombre": "Notebook Lenovo",
+  "precio": 1500000,
+  "stock": 10,
+  "imagenUrl": "https://imagen.com/notebook.jpg",
+  "categoria": {
+    "id": 1
+  }
+}
+
+5. Listar productos
+
+GET
+
+http://localhost:8080/productos
+
+6. Obtener producto por ID
+
+GET
+
+http://localhost:8080/productos/1
+
+7. Buscar por nombre
+
+GET
+
+http://localhost:8080/productos/nombre/Notebook
+
+8. Buscar por categoría
+
+GET
+
+http://localhost:8080/productos/categoria/Notebooks
+
+9. Actualizar producto
+
+PUT
+
+http://localhost:8080/productos/1
+
+Body
+
+{
+  "nombre": "Notebook Lenovo Gamer",
+  "precio": 1800000,
+  "stock": 8,
+  "imagenUrl": "https://imagen.com/notebook2.jpg",
+  "categoria": {
+    "id": 1
+  }
+}
+
+10. Crear un carrito
+
+POST
+
+http://localhost:8080/carritos
+
+11. Ver carritos
+
+GET
+
+http://localhost:8080/carritos
+
+12. Agregar un producto al carrito
+
+POST
+
+http://localhost:8080/carritos/1/productos/1
+
+
+
+GET http://localhost:8080/productos/1
+
+El carrito disminuye el stock
+
+
+13. Ver el carrito
+
+GET
+
+http://localhost:8080/carritos/1
+
+14. Vaciar el carrito
+
+DELETE
+
+http://localhost:8080/carritos/1/vaciar
+
+15. Eliminar el carrito
+
+DELETE
+
+http://localhost:8080/carritos/1
+
+16. Eliminar el producto
+
+DELETE
+
+http://localhost:8080/productos/1
+
+17. Eliminar la categoría
+
+DELETE
+
+http://localhost:8080/categorias/1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Tecnologías utilizadas
 
@@ -56,7 +243,7 @@ spring.datasource.password=
 1. Clonar el repositorio.
 
 ```bash
-git clone https://github.com/USUARIO/REPOSITORIO.git
+git clone https://github.com/gitcac20/ecommerce.git
 ```
 
 2. Abrir el proyecto con Maven.
